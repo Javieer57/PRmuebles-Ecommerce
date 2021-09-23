@@ -1,0 +1,115 @@
+// *****************
+// Detalles de producto
+// *****************
+    
+// Layout grid
+.detalles
+    grid-template-columns: repeat(12, 1fr)
+    grid-template-areas: 'img img img img img . info info info info info info'
+    .detalles_img
+        grid-area: img
+    .detalles_info
+        grid-area: info
+
+// Estilos de elementos
+.detalles_info
+    > *:not(:last-child)
+        margin-top: 0
+        margin-bottom: 30px
+
+    // Cabecera
+    .info_header
+        > *:not(:last-child)
+            margin-bottom: 10px
+        .header_titulo
+            @include titulo-mayusculas(24px)
+            font-weight: Bold
+            color: #474747
+        .header_marca
+            font-size: 14px            
+            color: #939292
+            font-weight: 300
+            .marca
+                font-weight: 600
+                color: #5d5d5d
+        .header_precio
+            font-weight: 600
+            font-size: 24px
+            color: $naranja
+    
+    // Texto
+    .info_texto
+        font-size: 14px
+        color: #474747
+        line-height: 21px
+    
+    // Cantidad
+    .info_cantidad
+        display: flex
+        align-items: center
+        flex-wrap: nowrap
+        .texto
+            font-size: 18px
+            color: #474747
+            display: inline-block
+            margin: 0 20px 0 0
+        .contador_contenedor
+            display: flex
+            align-items: center
+            border: 1px solid #DDD
+            .restar, .sumar
+                background: transparent
+                outline: none
+                font-size: 14px
+                color: #474747
+                padding: 10px
+                cursor: pointer
+            .input-number
+                outline: none
+                width: 60px
+                text-align: center
+                padding: 10px
+                font-size: 20px
+                border: none
+
+    // Botones
+    .info_botones
+        column-gap: 20px
+        display: grid
+        grid-template-areas: 'agregar comprar'
+        grid-template-columns: repeat(2, 1fr)
+        margin: 0
+        width: 100%
+        .btn
+            outline: none
+            background: none
+            cursor: pointer
+        .botones_agregar
+            border: 1px solid $naranja
+            color: $naranja
+            grid-area: agregar
+            padding: 15px
+        .botones_comprar
+            background-color: $naranja
+            color: #fff
+            grid-area: comprar
+            padding: 15px
+            &:active                                
+                background-color: #474747
+
+// Tamaño de tableta            
+@media screen and ( max-width: 768px )
+    .detalles
+        grid-template-areas: 'img info'
+        grid-template-columns: repeat(2, 1fr)
+        .info_botones
+            grid-row-gap: 20px
+            grid-template-areas: 'agregar' 'comprar'
+            grid-template-columns: 1fr
+    
+// Tamaño de celular
+@media screen and ( max-width: 428px )
+    .detalles
+        grid-row-gap: 20px
+        grid-template-areas: 'img' 'info'
+        grid-template-columns: 1fr

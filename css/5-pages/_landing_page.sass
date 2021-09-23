@@ -1,0 +1,86 @@
+// *****************
+// Landing page
+// *****************
+    
+// Layout grid
+main
+
+    // Anuncios
+    .anuncios
+        grid-template-columns: repeat(3, 1fr)
+        grid-row-gap: 20px
+        grid-template-areas: 'principal principal principal' '. . .'
+
+        // Áreas
+        .slider
+            grid-area: principal
+        
+    // Servicios
+    .servicios
+        grid-template-columns: repeat(3, 1fr)
+
+    // Galería
+    .galeria
+        grid-row-gap: 2%
+        grid-template-areas: 'imagen_cuadrada .' 'imagen_cuadrada .'
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-rows: repeat(2, min-content)
+
+        // Áreas
+        .imagen_cuadro
+            grid-area: imagen_cuadrada
+
+// Estilos de elementos
+main
+
+    // Servicios
+    .servicio
+        text-align: center
+
+        // Icono de servicio
+        .servicio_icon
+            width: 64px
+            height: 64px
+            color: #939393
+
+        // Título de servicio
+        .servicio_titulo
+            @include titulo-mayusculas(20)
+            color: #5D5D5D
+            font-weight: 400
+            margin-top: 20px
+
+
+// Tamaño de tableta            
+@media screen and ( max-width: 768px )
+    main
+        .anuncios
+            grid-template-columns: repeat(2, 1fr)
+            grid-row-gap: 20px
+            grid-template-areas: 'principal principal' '. .'
+            .promocion:nth-child(2)
+                display: none
+
+@media screen and ( max-width: 500px )
+    main
+        .anuncios
+            grid-template-columns: 1fr
+            grid-row-gap: 20px
+            grid-template-areas: 'principal' '.' '.'
+            .promocion:nth-child(2)
+                display: block
+
+// Tamaño de celular
+@media screen and ( max-width: 428px )
+    main
+        .galeria
+            grid-template-areas: "imagen_cuadrada" "." "."
+            grid-template-columns: 1fr
+            grid-template-rows: repeat(3, min-content)
+
+        .servicios
+            grid-template-columns: 1fr
+            .servicio
+                &:not(:last-child)
+                    margin-bottom: 60px
+                    

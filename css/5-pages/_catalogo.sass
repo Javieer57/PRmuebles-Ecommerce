@@ -1,0 +1,78 @@
+// *****************
+// Catálogo de productos
+// *****************
+    
+// Paginación
+.paginacion
+    font-weight: 300
+    font-size: 14px
+    color: #939292
+       
+// Layout grid
+.catalogo
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    grid-template-areas: 'filtros productos productos productos'
+
+    // Contenedor de filtros
+    .catalogo_filtros
+        grid-area: filtros
+
+    // Contenedor de cards
+    .catalogo_productos
+        display: grid
+        grid-area: productos
+        grid-gap: 20px
+        grid-template-columns: repeat(3, 1fr)
+        grid-template-rows: min-content
+
+// Estilos de elementos
+.catalogo
+
+    // Contenedor de filtro
+    .catalogo_filtros
+
+        //Filtro individual
+        .filtro
+            &:not(:last-child)
+                margin-bottom: 50px
+
+            // Cabecera
+            .filtro_titulo
+                color: #474747
+                font-size: 18px
+                font-weight: 600
+                margin: 0 0 20px
+                text-transform: uppercase
+
+            // Categoría de filtro
+            .filtro_categoria
+                color: #5d5d5d
+                cursor: pointer
+                display: flex
+                font-size: 14px
+                font-weight: 300
+                justify-content: space-between
+                width: 60%
+                &:not(:last-child)
+                    margin-bottom: 15px
+
+            // Filtro seleccionado
+            .filtro_activo
+                color: $naranja
+                font-weight: 600
+
+// Tamaño de tableta            
+@media screen and ( max-width: 768px )
+    .catalogo
+        grid-template-columns: repeat(8, 1fr)
+        grid-template-areas: 'filtros filtros productos productos productos productos productos productos'
+        .catalogo_productos
+            grid-template-columns: repeat(2, 1fr )
+
+// Tamaño de celular
+@media screen and ( max-width: 550px )
+    .catalogo
+        grid-template-columns: 1fr 1fr
+        grid-template-areas: 'filtros filtros' 'productos productos'
+        .catalogo_filtros
+            margin-bottom: 60px

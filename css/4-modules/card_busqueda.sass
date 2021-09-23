@@ -1,0 +1,37 @@
+// *****************
+// Card de producto
+// *****************
+
+#resultadosBusqueda
+    // Layout grid
+    .producto
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: repeat(3, min-content)
+        grid-row-gap: 10px
+
+    .producto_carrito
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-areas: 'img detalles'
+        grid-column-gap: 10px
+        grid-row-gap: 0    
+        padding: 10px
+        margin-bottom: 0
+        &:not(:last-child)
+            padding: 10px 10px 0
+
+        // Áreas
+        .producto_img
+            grid-area: img
+        
+        .producto_detalles
+            grid-area: detalles
+        
+        .producto_borrar
+            grid-area: borrar
+
+        .detalles_titulo
+            color: $negro
+            font-size:14px
+            text-decoration: none

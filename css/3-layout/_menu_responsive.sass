@@ -1,0 +1,75 @@
+// *****************
+// Menú responsive
+// *****************
+    
+.menu_responsive
+
+    // Contenedor de menu responsive
+    #contenedor_menu_responsive
+        background-color: #fff
+        border-top: 1px solid #dcdcdc
+        display: none
+        left: 50%
+        margin-top: 97px
+        position: fixed
+        top: 0
+        transform: translateX(-50%)
+        width: 90%
+        z-index: 99
+
+        // Sublinks
+        .contenido_sublink
+            color: $negro
+            display: block
+            font-size: 16px
+            margin-left: 15px
+            padding: 15px 0
+            position: relative
+            text-decoration: none
+            transition: all 0.3s ease-in-out 0s
+
+            // Barra lateral
+            &::before
+                background: $naranja none repeat scroll 0 0
+                content: ""
+                height: 3px
+                left: 0
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+                transition: all 0.3s ease-in-out 0s
+                width: 0
+            &:hover
+                padding-left: 15px
+                color: $naranja
+                &::before
+                    width: 10px
+    
+        // Link con submenú responsive
+        .sublink_desplegable
+            display: flex
+            justify-content: space-between
+            align-items: center
+            padding-right: 15px
+
+            // Signos de más y menos
+            #minus
+                display: none
+                color: $naranja
+            #plus
+                display: block
+                color: $naranja
+        
+        // Contendor de sublinks responsive    
+        #subLinks
+            display: none
+            background-color: #f2f2f2
+
+    // Fondo oscuro
+    .fondo_oscuro
+        background-color: rgba(0, 0, 0, .5)
+        display: none
+        height: 100vh
+        position: fixed
+        width: 100%
+        z-index: 98

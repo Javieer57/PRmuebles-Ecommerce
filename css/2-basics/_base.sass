@@ -1,0 +1,63 @@
+// *****************
+// Estilos Generales
+// *****************
+label.error
+    color: red
+    display: none
+    
+img
+    vertical-align: top
+    width: 100%
+
+button
+    outline: none
+    border: none
+    background-color: transparent
+
+a
+    text-decoration: none
+    outline: none
+    color: $negro
+    
+.button
+    display: inline-block
+    padding: 10px 15px
+
+
+
+// *****************
+// Grid general
+// *****************
+
+.grid-container
+    column-gap: 20px 
+    display: grid
+    margin: 0 auto
+    max-width: 1000px
+    width: 90%
+
+main
+    margin: 30px 0 80px
+    > *:not(:last-child)
+        margin-bottom: 60px
+    
+// *****************
+// Mediaqueries
+// *****************
+.display-desktop-none
+    display: none
+
+// Tamaño de tableta
+@media screen and ( max-width: 768px )
+    .display-tablet-none
+        display: none
+    .display-tablet-block
+        display: block
+
+
+// Tamaño de celular
+@media screen and ( max-width: 428px )
+    .display-movil-none
+        display: none
+    .display-movil-block
+        display: block

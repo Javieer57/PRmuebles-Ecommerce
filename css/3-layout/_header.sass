@@ -1,0 +1,202 @@
+// *****************
+// Header de página
+// *****************
+    
+// Estilos generales
+header
+    position: sticky 
+    top: 0
+    z-index: 10
+    background-color: $fondo-gris
+    border-bottom: 1px solid #dcdcdc
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1)
+    
+// Layout Grid
+.header
+    align-items: center
+    grid-template-areas: 'logo menu menu menu botones botones botones'
+    grid-template-columns: 1fr auto auto auto 1fr 1fr 1fr
+
+    // Áreas
+    .header_logo
+        min-width: 130px
+        grid-area: logo
+    .header_menu
+        grid-area: menu
+        justify-self: left
+    .header_botones
+        grid-area: botones
+
+// Estilos de elementos
+.header
+
+    // Logo
+    .header_logo
+        max-width: 150px
+        /** padding: 35px 0 **/
+
+    // Menú
+    .header_menu
+        display: flex
+        align-items: center
+
+        // Links principales
+        .menu_link
+            color: $negro
+            cursor: pointer
+            display: inline-block
+            font-size: 16px
+            padding: 35px 10px
+            text-align: center
+            text-decoration: none
+            transition: all .3s ease
+            &:hover
+                color: $naranja
+
+        // Menú desplegable
+        .menu_desplegable
+            position: relative 
+            &:hover
+                .desplegable_contenido 
+                    display: block
+
+            // Contenedor de sublinks
+            .desplegable_contenido
+                display: none
+                position: absolute
+                border-top: 1px solid #dcdcdc
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1)
+                max-width: 270px
+                width: 200%
+                background-color: white
+
+                // Sublinks
+                .contenido_sublink
+                    text-align: left
+                    color: $negro
+                    display: block
+                    font-size: 16px
+                    margin-left: 15px
+                    padding: 15px 0
+                    position: relative
+                    text-decoration: none
+                    transition: all 0.3s ease-in-out 0s
+
+                    // Barra lateral
+                    &::before
+                        background: $naranja none repeat scroll 0 0
+                        content: ""
+                        height: 3px
+                        left: 0
+                        position: absolute
+                        top: 50%
+                        transform: translateY(-50%)
+                        transition: all 0.3s ease-in-out 0s
+                        width: 0
+                    &:hover
+                        padding-left: 15px
+                        color: $naranja
+                        &::before
+                            width: 10px
+    
+    // Botones de acción
+    .header_botones
+        padding: 35px 0
+        text-align: right
+        .botones_accion
+            color: $negro
+            vertical-align: center
+            display: inline-block
+            position: relative
+            &:not(:last-child)
+                margin-right: 20px
+        .carrito_contador
+            position: absolute
+            top: -25%
+            right: -50%
+            font-size: 12px
+            color: white
+            background-color: red
+            border-radius: 50%
+            display: inline-block
+            padding: 3px 6px
+        .boton_menu
+            cursor: pointer
+            background-color: none
+            display: none
+        // Menú desplegable
+        .menu_desplegable
+            position: relative
+            display: flex
+            align-items: center
+            margin-right:10px
+
+            // Contenedor de sublinks
+            .desplegable_contenido
+                top: 40px
+                position: absolute
+                border-top: 1px solid #dcdcdc
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1)
+                max-width: 270px
+                width: 200%
+                background-color: white
+                // Sublinks
+                .contenido_sublink
+                    color: $negro
+                    display: block
+                    font-size: 16px
+                    margin-left: 15px
+                    padding: 15px 0
+                    position: relative
+                    text-decoration: none
+                    transition: all 0.3s ease-in-out 0s
+
+.busqueda_responsive
+    display: none
+.menu_desplegable
+    align-items: center
+    display: flex
+    margin-right:10px
+    position: relative
+    // Contenedor de sublinks
+    [data-search='busqueda_resultado']
+        background-color: white
+        border-top: 1px solid #dcdcdc
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1)
+        max-width: 270px
+        position: absolute
+        top: 40px
+        width: 200%
+        z-index: 99
+        // Sublinks
+        .contenido_sublink
+            color: $negro
+            display: block
+            font-size: 16px
+            margin-left: 15px
+            padding: 15px 0
+            position: relative
+            text-decoration: none
+            transition: all 0.3s ease-in-out 0s
+
+// Tamaño de tableta            
+@media screen and ( max-width: 789px )
+    .header
+        grid-template-areas: 'logo botones'
+        grid-template-columns: repeat(2, 1fr)
+        .header_menu
+            display: none
+        .header_botones
+            .boton_menu
+                display: inline-block
+            .menu_desplegable
+                display: none
+
+    .busqueda_responsive
+        display: block
+    .busqueda_desktop
+        display: none
+
+
+// Tamaño de celular
+@media screen and ( max-width: 428px )

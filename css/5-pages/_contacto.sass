@@ -1,0 +1,33 @@
+.contacto_container
+    margin-top: 60px
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-areas: 'contacto horarios' 'mapa mapa'
+    grid-gap: 20px
+
+    .contacto
+        grid-area: contacto
+    .horarios
+        grid-area: horarios
+    .mapa
+        grid-area: mapa
+
+
+.contacto_container
+    .contacto_titulo
+        margin: 0
+        font-size: 24px
+        color: $negro
+    .contacto_texto
+        color: $negro
+    .mapa
+        iframe
+            width: 100%
+    b
+        color: $texto-gris
+
+@media screen and ( max-width: 768px )
+    .contacto_container
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-areas: 'contacto contacto' 'horarios horarios' 'mapa mapa'
+
+@media screen and ( max-width: 428px )

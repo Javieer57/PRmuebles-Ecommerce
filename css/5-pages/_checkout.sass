@@ -1,0 +1,148 @@
+// Layout grid
+.checkout
+    grid-template-columns: repeat(12, 1fr)
+    grid-template-areas: 'forms forms forms forms forms forms . compra compra compra compra compra'
+    >*:not(:last-child)
+        margin-bottom: 60px
+
+    // Contenedor de formularios
+    .contenedor_formularios
+        grid-area: forms
+
+
+        .formulario
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            grid-gap: 20px
+            &:not(:last-child)
+                margin-bottom: 60px
+        
+        // Formulario datos de entrega
+        .entrega
+            grid-template-areas: 'titulo titulo' 'nombre apellidos' 'calle calle' 'ciudad ciudad' 'estado cp' 'mail tel'
+        
+        // Formulario datos de pago
+        .pago
+            grid-template-areas: 'titulo titulo' 'nombre nombre' 'num num' 'fecha cvv'
+
+    // Contenedor detalles de compra
+    .contenedor_compra
+        grid-area: compra
+        display: grid
+        align-content: start
+        grid-gap: 20px
+
+// Estilos de elementos
+.contenedor_formularios   
+
+        // Titulo de formulario
+        .formulario_titulo
+            font-weight: 700
+            font-size: 24px
+            color: #474747
+            margin-bottom: 20px
+            grid-area: titulo
+
+        // Campo de formulario
+        .formulario_campo
+            .campo_titulo
+                display: block
+                font-size: 16px
+                color: #474747
+                margin-bottom: 10px
+                font-weight: 300
+
+            .campo_input
+                box-sizing: border-box
+                width: 100%
+                border: 1px solid #DDD
+                padding: 10px 15px
+
+        // Áreas del formularios
+        .entrega
+            .nombre
+                grid-area: nombre
+            .apellidos
+                grid-area: apellidos
+            .calle
+                grid-area: calle
+            .ciudad
+                grid-area: ciudad
+            .estado
+                grid-area: estado
+            .cp
+                grid-area: cp
+            .mail
+                grid-area: mail
+            .tel
+                grid-area: tel
+
+        .pago
+            .nombre_tarjeta
+                grid-area: nombre
+            .numero_tarjeta
+                grid-area: num
+            .fecha_tarjeta
+                grid-area: fecha
+            .cvv_tarjeta
+                grid-area: cvv
+
+.contenedor_compra
+
+    // Titulo
+    .compra_titulo
+        font-weight: 700
+        font-size: 24px
+        color: #474747
+        margin-bottom: 20px
+
+    // Desglose de compra
+    .compra_desglose
+        border-top: 1px solid #e0e0e0
+        margin: 30px 0
+
+        .concepto
+            display: flex
+            justify-content: space-between
+            font-weight: 600
+            font-size: 16px
+            color: #939292
+            &:not(:last-child)
+                margin-bottom: 15px
+
+        .total
+            font-size: 18px
+            color: #474747
+            
+            .cantidad
+                color:$naranja
+
+    // Botones
+    .compra_btn
+
+        .btn
+            width: 100%
+            cursor: pointer
+
+        .botones_comprar
+            background-color: $naranja
+            color: #fff
+            grid-area: comprar
+            padding: 15px
+            &:active, &:hover
+                background-color: #474747
+
+// Tamaño de tableta            
+@media screen and ( max-width: 768px )
+    .checkout
+        grid-template-columns: repeat(8, 1fr)
+        grid-template-areas: '. forms forms forms forms forms forms .' '. compra compra compra compra compra compra .'
+    
+// Tamaño de celular
+@media screen and ( max-width: 428px )
+    .checkout
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-areas: 'forms forms' 'compra compra'
+        .contenedor_formularios
+            .entrega
+                grid-template-areas: 'titulo titulo' 'nombre nombre' 'apellidos apellidos' 'calle calle' 'ciudad ciudad' 'estado estado' 'cp cp' 'mail mail' 'tel tel'

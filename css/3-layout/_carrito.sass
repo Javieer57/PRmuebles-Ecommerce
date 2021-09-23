@@ -1,0 +1,173 @@
+// *****************
+// Carrito de compras
+// *****************
+
+// Layout grid
+.carrito_productos
+    .producto
+        display: grid
+        grid-template-columns: repeat(2, 1fr) auto
+        grid-template-areas: 'img detalles borrar'
+        grid-column-gap: 20px
+        grid-row-gap: 0
+        &:not(:last-child)
+            margin-bottom: 20px 
+
+    // Áreas
+        .producto_img
+            grid-area: img
+
+        .producto_detalles
+            grid-area: detalles
+
+        .producto_borrar
+            grid-area: borrar
+
+
+// Estilos de elementos
+.carrito    
+    background-color: #fff
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1)
+    display: block
+    height: 95vh
+    max-width: 400px
+    overflow-y: auto
+    overflow: auto
+    padding: 20px
+    position: fixed
+    right: 0
+    top: 0
+    transform: translateX(100%)
+    transition: all 0.5s ease 0s
+    z-index: 10000
+
+.abierto
+    transform: translateX(0)
+
+.carrito_cabecera
+    align-items: center
+    color: $negro
+    display: flex
+    justify-content: space-between
+    margin-bottom: 30px
+    margin-top: 10px
+
+    // Título
+    .cabecera_titulo
+        display: flex
+        align-items: center
+        font-size: 20px
+        font-weight: 400
+        margin-bottom: 0
+
+        // Icono de bolsa
+        .titulo_icon
+            width: 28px
+            height: 28px
+            color: $negro
+            margin-right: 10px
+
+    // Icono de cierre
+    .cabecera_cierre
+        background: transparent
+        border: none
+        outline: none
+        padding: 0
+        .cierre_icon
+            color: #e81212
+            cursor: pointer
+            height: 28px
+            width: 28px
+
+.carrito_productos
+    border-top: 1px solid #e0e0e0
+    padding: 20px 0 0
+
+    .producto_detalles
+
+        .detalles_titulo
+            color: $negro
+            text-decoration: none
+
+        .detalles_precio
+            display: block
+            color: $naranja
+            font-weight: 600
+            font-size: 16px
+            margin-top: 15px
+
+    .producto_borrar
+        background: transparent
+        border-radius: 50%
+        border: none
+        outline: none
+        padding: 0    
+        line-height: 0
+        align-self: start
+        text-align: right
+        .borrar_icon
+            padding: 5px
+            color: $negro
+            cursor: pointer
+            height: 20px
+            width: 20px
+
+.desglose_costos
+    padding-top: 50px
+    margin-bottom: 50px
+    border-top: 1px solid #e0e0e0
+    .costo            
+        display: flex
+        justify-content: space-between
+        font-size: 16px
+        font-weight: 500
+        color: $texto-gris
+        .costo_cantidad
+            font-weight: 600
+        .concepto_total
+            color: $negro
+            font-size: 18px
+            font-weight: 600
+        .cantidad_total
+            color: $naranja
+            font-size: 18px
+            font-weight: 600
+        &:not(:last-child)
+            margin-bottom: 15px
+
+.carrito_checkout
+    margin-bottom: 20px
+    &::after
+        content: ""
+        width: 100%
+        padding: 20px
+        margin-bottom: 20px
+
+    .boton_checkout
+        background: $naranja
+        color: white
+        cursor: pointer
+        display: block
+        font-size: 18px
+        font-weight: 600
+        outline: none
+        padding: 18px 40px
+        text-align: center
+        text-decoration: none
+        transition: all 0.3s ease
+        &:hover
+            background: #e81212
+            color: #fff
+
+
+// Fondo oscuro
+.fondo_oscuro_carrito
+    background-color: rgba(0, 0, 0, .5)
+    display: none
+    height: 100vh
+    top: 0
+    left: 0
+    position: fixed
+    width: 100%
+    z-index: 98
+    transition: all 0.5s ease 0s

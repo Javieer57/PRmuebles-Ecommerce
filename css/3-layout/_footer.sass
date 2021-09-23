@@ -1,0 +1,113 @@
+// *****************
+// Footer de página
+// *****************
+    
+// Estilos generales
+footer
+    background-color: $fondo-gris    
+    .grid-container
+        margin-bottom: 0
+    .footer
+        padding: 50px 0
+
+// Layout grid
+.footer
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-areas: 'contacto avisos redes logo'
+
+    // Áreas
+    .footer_contacto
+        grid-area: contacto
+    .footer_avisos
+        grid-area: avisos
+    .footer_redes
+        grid-area: redes
+    .footer_logo
+        grid-area: logo
+
+// Estilos de elementos
+.footer
+
+    // Título de footer
+    .footer_titulo
+        @include titulo-mayusculas(14px, uppercase)
+        margin-bottom: 20px
+
+    // Texto de footer
+    .footer_texto
+        color: $texto-gris
+        font-size: 14px
+        &:not(:last-child)
+            margin-bottom: 15px
+
+    // Links de footer
+    .footer_link_wrap
+        &:not(:last-child)
+            margin-bottom: 15px
+
+    .footer_link
+        color: $texto-gris
+        cursor: pointer
+        text-decoration: none
+        &:hover
+            color: $naranja
+
+    // Red social de footer
+    .footer_redes
+        .footer_titulo
+            margin-bottom: 0
+
+    .btn_redsocial
+        border-radius: 50%
+        border: 1px solid $texto-gris
+        cursor: pointer
+        display: inline-block
+        margin-top: 20px
+        padding: 20px
+        position: relative
+        &:not(:last-child)
+            margin-right: 15px
+        
+        // logo de red social
+        .feather
+            width: 20px
+            height: 20px
+            color: $negro
+            left: 50%
+            position: absolute
+            top: 50%
+            transform: translate(-50%, -50%)
+        .icon
+            color: $negro
+            font-size: 18px
+            left: 50%
+            position: absolute
+            top: 50%
+            transform: translate(-50%, -50%)
+
+        &:hover
+            background-color: $naranja
+            border: 1px solid transparent
+            .icon, .feather
+                color: #fff
+                stroke-width: 2
+
+    // Logo de footer
+    .footer_img
+        width: 90%
+        max-width: 150px
+        margin: auto
+
+// Tamaño de tableta            
+@media screen and ( max-width: 768px )
+    .footer
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-areas: 'redes logo' 'contacto avisos'
+        grid-row-gap: 40px
+        .footer_img
+            margin: 0
+
+// Tamaño de celular
+@media screen and ( max-width: 428px )
+    .footer
+        grid-template-areas: 'redes redes' 'logo .' 'contacto avisos'

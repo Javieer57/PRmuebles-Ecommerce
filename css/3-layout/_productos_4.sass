@@ -1,0 +1,29 @@
+// *****************
+// Sección de productos con 4 columnas
+// *****************
+
+// Layout grid
+.productos
+    grid-row-gap: 20px
+    grid-template-areas: 'titulo titulo titulo titulo' '. . . .'
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-rows: min-content
+
+    // Áreas
+    .seccion_titulo
+        grid-area: titulo
+
+// Estilos de elementos
+.productos
+
+    // Titulo de sección
+    .seccion_titulo
+        @include titulo-mayusculas(28px)
+        margin-bottom: 10px
+        text-align: center
+
+// Tamaño de tableta            
+@media screen and ( max-width: 768px )
+    .productos
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-areas: "titulo titulo"
